@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>網頁設計成果報告 - 吳羿學</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      text-align: center;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #4a90e2;
+      padding: 10px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.6rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ffdd57;
+    }
+
+    .container {
+      max-width: 1000px;
+      background-color: #ffffff;
+      padding: 100px 40px 40px;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #34495e;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      border: 1px solid #eaeaea;
+      text-align: left;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .tech-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .html-tag { background-color: #e34c26; color: white; }
+    .css-tag { background-color: #2965f1; color: white; }
+    .js-tag { background-color: #f0db4f; color: #323330; }
+
+    .btn {
+      display: inline-block;
+      background-color: #3b558d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: #2c4374;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #34495e;
+    }
+
+    details p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .reflection {
+      text-align: left;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .reflection h2 {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .reflection p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #4a90e2;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+      }
+
+      .nav-links a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <nav>
+    <div class="nav-container">
+      <span class="logo">選單</span>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#">首頁</a>
+        <a href="#p1">台南景點介紹</a>
+        <a href="#p2">影響我的話</a>
+        <a href="#p3">喜歡的甜點</a>
+        <a href="#p4">花卉介紹</a>
+        <a href="#p5">圖片</a>
+        <a href="#p6">圖片輪播</a>
+        <a href="#reflection">課程心得</a> <!-- 新增心得導覽 -->
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>網頁設計成果報告</h1>
+    <h2>學生姓名: 吳羿學</h2>
+    <h2>學號: 5B3G0048</h2>
+    <h2>指導老師: 劉毓芬</h2>
+
+    <p class="intro">
+      本頁面展示我在網頁設計課程中的學習成果，包含使用HTML5、CSS3和JavaScript開發的各類網頁作品。
+      每個項目都展示了不同的技術應用和設計理念，點擊下方按鈕可查看完整作品。
+    </p>
+
+    <div class="projects-container">
+      <div class="project-card" id="p1">
+        <span class="tech-tag html-tag">HTML5</span>
+        <span class="tech-tag css-tag">CSS3</span>
+        <h3>台南景點介紹</h3>
+        <p>使用HTML5語義化標籤構建的響應式網頁。</p>
+        <a href="https://calvinwu827.github.io/1122/w5.html" class="btn">查看作品</a>
+      </div>
+
+      <div class="project-card" id="p2">
+        <span class="tech-tag html-tag">HTML5</span>
+        <span class="tech-tag css-tag">CSS3</span>
+        <h3>影響我的話</h3>
+        <p>包含HTML表單與表格的設計範例。</p>
+        <a href="https://calvinwu827.github.io/1122/456879.html" class="btn">查看作品</a>
+      </div>
+
+      <div class="project-card" id="p3">
+        <span class="tech-tag css-tag">CSS3</span>
+        <h3>喜歡的甜點</h3>
+        <p>使用CSS製作動畫與過渡效果。</p>
+        <a href="https://calvinwu827.github.io/1122/8.html" class="btn">查看作品</a>
+      </div>
+
+      <div class="project-card" id="p4">
+        <span class="tech-tag css-tag">CSS3</span>
+        <h3>花卉介紹</h3>
+        <p>展示Flexbox技術的彈性排版效果。</p>
+        <a href="https://calvinwu827.github.io/1122/7.html" class="btn">查看作品</a>
+      </div>
+
+      <div class="project-card" id="p5">
+        <span class="tech-tag html-tag">HTML5</span>
+        <span class="tech-tag css-tag">CSS3</span>
+        <span class="tech-tag js-tag">JavaScript</span>
+        <h3>JavaScript 圖片</h3>
+        <p>可進行圖片的互動。</p>
+        <a href="https://calvinwu827.github.io/1122/456.html" class="btn">查看作品</a>
+      </div>
+
+      <div class="project-card" id="p6">
+        <span class="tech-tag html-tag">HTML5</span>
+        <span class="tech-tag css-tag">CSS3</span>
+        <span class="tech-tag js-tag">JavaScript</span>
+        <h3>圖片輪播組件</h3>
+        <p>具有導覽功能的圖片輪播展示。</p>
+        <a href="https://calvinwu827.github.io/1122/fffffffffffffffff.html" class="btn">查看作品</a>
+      </div>
+    </div>
+
+    <section class="reflection" id="reflection">
+      <h2>課程心得</h2>
+      <p>
+        在這學期的網頁設計課程中，我從零開始學會了HTML、CSS和JavaScript，逐漸了解網頁的結構與互動方式。
+        每次的實作都讓我更熟悉排版邏輯與前端開發技巧，也體會到設計與使用者體驗的重要性。
+        特別是在製作計算器與輪播圖的過程中，我學會了如何將程式邏輯應用到實際介面中，收穫非常多。
+        未來我希望能繼續深化這方面的能力，做出更多好用又有美感的網頁。
+      </p>
+    </section>
+
+    <footer>
+      © 2025 吳羿學 - 網頁設計課程成果報告
+    </footer>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
